@@ -26,12 +26,6 @@ export default function CalendarScreen({ navigation }) {
     }, [])
   );
 
-  const loadDiaries = async () => {
-    const allDiaries = await storageService.getAllDiaries();
-    setDiaries(allDiaries);
-    setMarkedDates(generateMarkedDates(allDiaries));
-  };
-
   const handleDayPress = (day) => {
     const diary = diaries.find((d) => d.date === day.dateString);
     setSelectedDate(day.dateString);
