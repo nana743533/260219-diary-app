@@ -1,43 +1,47 @@
-# 日記アプリ (Diary App)
+# Diary App
 
-1日の総合評価・進捗・起床時間・睡眠時間・メモを記録できるスマホ日記アプリです。
-
-GitHubのようなカレンダーヒートマップで過去の記録を可視化できます。
+A mobile diary app for tracking daily ratings, progress, wake-up/sleep times, and memos with GitHub-style calendar heatmap visualization.
 
 ![Platform](https://img.shields.io/badge/platform-React%20Native-blue)
 ![Backend](https://img.shields.io/badge/backend-Go%20%2B%20MySQL-00ADD8)
 
-## 機能
+## Features
 
-### スマホアプリ (React Native)
+### Mobile App (React Native)
 
-- 📝 日記記録（評価1-5、進捗A/B/C、時間、メモ）
-- 📅 カレンダーヒートマップ表示（GitHub風）
-- 💾 ローカルデータ保存（AsyncStorage）
-- 🔄 タブ切り替え（カレンダー/記録）
+- 📝 **Daily Entry Recording** (Rating 1-5, Progress A/B/C, Time, Memo)
+- 📅 **Calendar Heatmap** (GitHub-style visualization)
+- 💾 **Local Storage** (AsyncStorage)
+- 🔄 **Tab Navigation** (Calendar / Entry)
 
-### バックエンドAPI (Go)
+### Backend API (Go)
 
 - 📊 RESTful API
-- 🗄️ MySQLデータベース
-- 📈 統計機能（サマリー、トレンド）
-- 🗓️ カレンダーデータ取得
+- 🗄️ MySQL Database
+- 📈 Statistics (Summary, Trend)
+- 🗓️ Calendar Data Endpoints
 
-## スクリーンショット
+## Screenshots
 
-### 記録画面
-<img src="assets/screenshot-diary.png" width="300">
+### Entry Screen
+<img src="assets/image2.png" width="300">
 
-評価（1-5）、進捗（A/B/C）、時間、メモを記録
+- Select rating (1-5) with circular buttons
+- Choose progress (A/B/C)
+- Input wake-up and sleep times
+- Add memo (optional)
+- Save your entry
 
-### カレンダー画面
-<img src="assets/screenshot-calendar.png" width="300">
+### Calendar Screen
+<img src="assets/image3.png" width="300">
 
-評価が緑色の濃さで表示されるヒートマップ
+- GitHub-style heatmap with green color intensity
+- Tap any date to view details or record entry
+- Color legend for rating levels
 
-## 技術スタック
+## Tech Stack
 
-### フロントエンド
+### Frontend
 
 - React Native 0.81.5
 - Expo 54
@@ -45,121 +49,121 @@ GitHubのようなカレンダーヒートマップで過去の記録を可視�
 - react-native-calendars
 - AsyncStorage
 
-### バックエンド
+### Backend
 
 - Go 1.22+
 - Gin Web Framework
 - MySQL 8
 - go-sql-driver/mysql
 
-## ディレクトリ構成
+## Directory Structure
 
 ```
 260219-diary-app/
-├── App.js                    # React Nativeエントリーポイント
+├── App.js                    # React Native entry point
 ├── src/
-│   ├── navigation/           # タブナビゲーション
-│   ├── screens/              # 画面
-│   ├── components/           # コンポーネント
-│   ├── services/             # データ永続化
-│   └── utils/                # ユーティリティ
-├── server/                   # Goバックエンド
-│   ├── cmd/api/              # エントリーポイント
+│   ├── navigation/           # Tab navigation
+│   ├── screens/              # Screens
+│   ├── components/           # Components
+│   ├── services/             # Data persistence
+│   └── utils/                # Utilities
+├── server/                   # Go backend
+│   ├── cmd/api/              # Entry point
 │   ├── internal/
-│   │   ├── handler/          # HTTPハンドラー
-│   │   ├── service/          # ビジネスロジック
-│   │   ├── model/            # データモデル
-│   │   └── config/           # 設定
-│   └── Makefile              # 開発コマンド
-└── API_SPEC.md               # API仕様書
+│   │   ├── handler/          # HTTP handlers
+│   │   ├── service/          # Business logic
+│   │   ├── model/            # Data models
+│   │   └── config/           # Configuration
+│   └── Makefile              # Dev commands
+└── API_SPEC.md               # API specification
 ```
 
-## セットアップ
+## Setup
 
-### フロントエンド
+### Frontend
 
 ```bash
-# 依存関係インストール
+# Install dependencies
 npm install
 
-# 起動
+# Start development server
 npx expo start
 ```
 
-Expo GoアプリでQRコードをスキャンしてください。
+Scan QR code with Expo Go app.
 
-### バックエンド
+### Backend
 
 ```bash
 cd server
 
-# MySQL起動
+# Start MySQL
 make mysql-up
 
-# サーバー起動
+# Start server
 make run
 ```
 
-詳細は [server/README.md](./server/README.md) を参照してください。
+See [server/README.md](./server/README.md) for details.
 
-## API仕様
+## API Documentation
 
-API仕様書は [API_SPEC.md](./API_SPEC.md) を参照してください。
+See [API_SPEC.md](./API_SPEC.md) for complete API specification.
 
-## 使用例
+## Usage
 
-### 日記を保存
+### Recording a Diary Entry
 
-1. 「記録」タブを開く
-2. 評価（1-5）を選択
-3. 進捗（A/B/C）を選択
-4. 起床時間・睡眠時間を入力
-5. メモを入力（任意）
-6. 「保存」をタップ
+1. Open "Entry" tab
+2. Select rating (1-5)
+3. Choose progress (A/B/C)
+4. Enter wake-up and sleep times
+5. Add memo (optional)
+6. Tap "Save"
 
-### カレンダーで確認
+### Viewing Calendar
 
-1. 「カレンダー」タブを開く
-2. 評価がある日は緑色で表示
-3. 日付をタップして詳細確認
+1. Open "Calendar" tab
+2. Recorded days shown in green shades
+3. Tap any date to view details
 
-## ヒートマップの色
+## Heatmap Color Guide
 
-| 評価 | 色 |
-|------|------|
-| なし | グレー |
-| 1 | 薄い緑 |
-| 2 | 中緑 |
-| 3 | 濃い緑 |
-| 4 | かなり濃い緑 |
-| 5 | 最も濃い緑 |
+| Rating | Color |
+|--------|-------|
+| None   | Gray |
+| 1      | Light Green |
+| 2      | Medium Green |
+| 3      | Dark Green |
+| 4      | Darker Green |
+| 5      | Darkest Green |
 
-## 開発
+## Development
 
 ```bash
-# フロントエンド
-npm install           # 依存関係インストール
-npx expo start        # 開発サーバー起動
+# Frontend
+npm install           # Install dependencies
+npx expo start        # Start dev server
 
-# バックエンド
+# Backend
 cd server
-make build            # ビルド
-make test             # テスト
-make fmt              # フォーマット
+make build            # Build
+make test             # Test
+make fmt              # Format
 ```
 
-## 今後の機能
+## Roadmap
 
-- [ ] ユーザー認証
-- [ ] データ同期（ローカル↔サーバー）
-- [ ] グラフ表示
-- [ ] エクスポート機能
-- [ ] ダークモード
+- [ ] User Authentication
+- [ ] Data Sync (Local ↔ Server)
+- [ ] Graph Visualization
+- [ ] Export Feature
+- [ ] Dark Mode
 
-## ライセンス
+## License
 
 MIT
 
-## 作者
+## Author
 
 [nana743533](https://github.com/nana743533)
