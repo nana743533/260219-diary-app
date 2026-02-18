@@ -24,8 +24,6 @@ A mobile diary app for tracking daily ratings, progress, wake-up/sleep times, an
 ## Screenshots
 
 ### Entry Screen
-<img src="assets/image2.png" width="300">
-
 - Select rating (1-5) with circular buttons
 - Choose progress (A/B/C)
 - Input wake-up and sleep times
@@ -33,8 +31,6 @@ A mobile diary app for tracking daily ratings, progress, wake-up/sleep times, an
 - Save your entry
 
 ### Calendar Screen
-<img src="assets/image3.png" width="300">
-
 - GitHub-style heatmap with green color intensity
 - Tap any date to view details or record entry
 - Color legend for rating levels
